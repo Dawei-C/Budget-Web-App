@@ -1,0 +1,14 @@
+* {
+  border: 1px dashed blue;
+  text-align: center;
+}
+
+div {
+  background-color: grey;
+  color: white;
+  padding: 1%;
+  height: 100%;
+  width: 25%;
+  margin: auto;
+  display: none;
+}
