@@ -12,14 +12,23 @@
   <head>
 
   <body>
+  
+  <div>
+    <h3>Budget Calculator</h3>
+  </div>
+  
+  <div>
+  <form name="budgetCalculator">
+    <label for="userBudget">Budget</label>
+    <input type="number" id="userBudget" placeholder="Your budget...">
 
-    <h1>Budget Web App</h1>
-    <p>&nbsp;
-    <button>Click here</button>
-    <div>
-      Hello world. This is still a work in progress.
-    </div>
-    <br/>
+    <label for="userSpending">Spending</label>
+    <input type="number" id="userSpending" placeholder="Your spending...">
 
-  </body>
+    <input type="submit" value="Submit" onclick="calculateBudget();">
+
+  </form>
+  </div>
+
+</body>
 </html>
