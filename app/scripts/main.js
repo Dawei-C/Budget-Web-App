@@ -5,9 +5,9 @@ function calculateBudget() {
   result = Math.round(result*100) / 100
 
   if (result > 0) {
-    alert("Result is $" + result + "... within budget.");
+    alert("Result is " + result + " - within budget.");
   } else if (result < 0) {
-    alert("Result is $" + result + "... outside of budget.");
+    alert("Result is " + result + " - outside of budget.");
   } else if (result == 0) {
     alert("You broke even. Not sure if worth.");
   } else {
