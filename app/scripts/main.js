@@ -2,31 +2,42 @@ function reloadPage() {
   location.reload();
 }
 
-function calculateBudget() {
+function clearForm(formID) {
+  document.getElementById(formID).reset();
+}
+
+function getValue() {
   var userBudget = parseFloat(document.budgetCalculator.userBudget.value);
   var userSpending = parseFloat(document.budgetCalculator.userSpending.value);
   var result = userBudget - userSpending;
   result = Math.round(result*100) / 100;
+  return result;
+}
 
-  var paragraph = document.createElement('p');
+function createPara(content) {
+  var para = document.createElement('p');
+  var userInput = document.createTextNode(content);
+  para.appendChild(userInput);
+  document.getElementById('budgetDiv').appendChild(para);
+}
 
+function calculateBudget() {
+  var value = getValue();
 
-  if (result > 0) {
-      var result = document.createTextNode("You'll have $" + result + " left over. :)");
-      paragraph.appendChild(result);
-      document.getElementById('main').appendChild(paragraph);
-      return false;
-  } else if (result < 0) {
-      var result = document.createTextNode("You'll have $" + result + " left over. :(");
-      paragraph.appendChild(result);
-      document.getElementById('main').appendChild(paragraph);
-      return false;
-  } else if (result == 0) {
-      var result = document.createTextNode("You'll break even. Not sure if worth. :|");
-      paragraph.appendChild(result);
-      document.getElementById('main').appendChild(paragraph);
-      return false;
+  if (value == 1 || value == -1) {
+    createPara('You will have ' + value + ' dollar left over. :|');
+    clearForm('budget');
+  } else if (value > 0) {
+    createPara('You will have ' + value + ' dollars left over. :D');
+    clearForm('budget');
+  } else if (value < 0) {
+    createPara('You will have ' + value + ' dollars left over. D:');
+    clearForm('budget');
+  } else if (value == 0) {
+    createPara('You will break even. :|');
+    clearForm('budget');
   } else {
-      return false;
+    createPara('fak u');
+    return false;
   }
 }
